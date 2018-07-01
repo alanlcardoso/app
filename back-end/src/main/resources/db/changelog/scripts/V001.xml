@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+	<changeSet author="Alan" id="201803191252">
+
+		<createTable tableName="cargo">
+			<column name="id" type="int">
+				<constraints nullable="false" primaryKey="true"
+					primaryKeyName="pk_cargo" />
+			</column>
+
+			<column name="descricao" type="VARCHAR(100)">
+				<constraints nullable="false" />
+			</column>
+
+		</createTable>
+
+		<createTable tableName="equipe">
+
+			<column name="id" type="int">
+				<constraints nullable="false" primaryKey="true"
+					primaryKeyName="pk_equipe" />
+			</column>
+
+			<column name="descricao" type="VARCHAR(100)">
+				<constraints nullable="false" />
+			</column>
+
+		</createTable>
+
+		<createTable tableName="empresa">
+
+			<column name="id" type="int">
+				<constraints nullable="false" primaryKey="true"
+					primaryKeyName="pk_empresa" />
+			</column>
+
+			<column name="nome" type="VARCHAR(100)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="cnpj" type="VARCHAR(20)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="telefone" type="VARCHAR(20)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="telefone2" type="VARCHAR(20)">
+				<constraints nullable="true" />
+			</column>
+
+			<column name="email" type="VARCHAR(40)">
+				<constraints nullable="true" />
+			</column>
+
+			<column name="site" type="VARCHAR(60)">
+				<constraints nullable="true" />
+			</column>
+
+		</createTable>
+
+		<createTable tableName="funcionario">
+
+			<column name="id" type="int">
+				<constraints nullable="false" primaryKey="true"
+					primaryKeyName="pk_funcionario" />
+			</column>
+
+			<column name="nome" type="VARCHAR(100)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="matricula" type="VARCHAR(20)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="cpf" type="VARCHAR(14)">
+				<constraints nullable="false" />
+			</column>
+
+			<column name="nascimento_data" type="date">
+				<constraints nullable="true" />
+			</column>
+
+			<column name="mae_nome" type="VARCHAR(60)">
+				<constraints nullable="true" />
+			</column>
+
+			<column name="pai_nome" type="VARCHAR(60)">
+				<constraints nullable="true" />
+			</column>
+
+			<column name="telefone_celular" type="VARCHAR(20)">
+				<constraints nullable="true" />
+			</column>
+
+			<column name="id_equipe" type="bigint">
+				<constraints nullable="true" />
+			</column>
+
+			<column name="id_cargo" type="bigint">
+				<constraints nullable="true" />
+			</column>
+
+		</createTable>
+
+		<addAutoIncrement columnDataType="int"
+			columnName="id" incrementBy="1" startWith="1" tableName="cargo" />
+
+		<addAutoIncrement columnDataType="int"
+			columnName="id" incrementBy="1" startWith="1" tableName="equipe" />
+
+		<addAutoIncrement columnDataType="int"
+			columnName="id" incrementBy="1" startWith="1" tableName="empresa" />
+
+		<addAutoIncrement columnDataType="int"
+			columnName="id" incrementBy="1" startWith="1" tableName="funcionario" />
+
+	</changeSet>
+
+</databaseChangeLog>
